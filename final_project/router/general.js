@@ -31,10 +31,10 @@ public_users.get("/", async function (req, res) {
 })
 
 // Get book details based on ISBN
-public_users.get("/isbn/:isbn", function (req, res) {
+public_users.get("/isbn/:isbn", async function (req, res) {
 	//Write your code here
 	const isbn = req.params.isbn
-	const book = books[isbn]
+	const book = await books[isbn]
 	return res.send(JSON.stringify({ book }, null, 4))
 })
 
